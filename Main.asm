@@ -65,6 +65,8 @@ cpuScissorDrawCheat2 BYTE "You drop your safety scissors in terror", 0
 cpuScissorWinCheat1 BYTE "Robro pulls out a stealth rock and smashes your scissors when you aren't looking", 0
 cpuScissorWinCheat2 BYTE "You are dumbfounded at how some paper did that", 0
 
+; Result messages
+
 winMessage BYTE "You win! ",0
 lossMessage BYTE "You lost :( ",0
 drawMessage BYTE "A draw! ",0
@@ -84,13 +86,9 @@ main proc
 	; Code for the title page
 	INVOKE SetConsoleTitle, ADDR consoleTitle
 	call titlePageDisplay
-
-	call clrscr
 	call clrscr
 
 	call Game
-
-
 
 	exit
 
@@ -128,7 +126,7 @@ titlePageDisplay endp
 ;------------------------------------
 ;generateCpuChoice
 ;Generates a number between 1-3
-; Stores it in randomValue variable
+;Stores it in randomValue variable
 ;------------------------------------
 generateCpuChoice PROC
 	
@@ -153,6 +151,10 @@ generateCpuChoice PROC
 
 generateCpuChoice endp
 
+;------------------------------------
+;Game
+;The game loop
+;------------------------------------
 
 Game PROC
 
@@ -361,6 +363,5 @@ Game PROC
 
 	ret
 Game endp
-
 end main
 
